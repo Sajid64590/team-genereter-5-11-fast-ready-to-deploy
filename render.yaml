@@ -1,0 +1,15 @@
+
+services:
+  - type: web
+    name: cricket-team-generator
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: cricket-db
+      mountPath: /opt/render/project/src
+      sizeGB: 1
